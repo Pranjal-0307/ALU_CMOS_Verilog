@@ -44,3 +44,12 @@ Clocks `clk1` and `clk2` alternate to drive adjacent pipeline stages safely and 
 
 - 🟢 `Zout`: 8-bit result of the ALU operation  
 - 🔁 `Carry/Borrow`: 1-bit flag indicating carry-out (ADD/INC) or borrow (SUB)
+- ## 📄 File Descriptions
+
+| File Name     | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| `ALU.v`       | Main Verilog file containing the ALU logic, pipeline stages, control, and data path. |
+| `ALU_tb.v`    | Testbench for simulating the ALU with various test cases using dual clocks. |
+| `ALU.vcd`     | Value Change Dump (VCD) file generated from simulation, used to view waveforms in GTKWave. |
+| `result`      | Text output file capturing the Zout and Carry/Borrow values from simulation for each operation. |
+| `README.md`   | Project overview, architecture, tool usage, and file documentation (you are reading it). |
