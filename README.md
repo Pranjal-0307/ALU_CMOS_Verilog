@@ -1,55 +1,73 @@
-# 🔧 8-Bit CMOS-Based Pipelined ALU in Verilog
+# 🔧 8-Bit CMOS-Based Pipelined ALU
+## 🧠 CMOS Logic Implementation
 
-This project implements an 8-bit Arithmetic Logic Unit (ALU) using custom CMOS logic gates and Verilog HDL, structured with a 4-stage pipelined architecture and a dual-phase clock system. Designed as a deep dive into both digital logic and transistor-level circuit design, this ALU handles fundamental arithmetic and logical operations — perfect for VLSI learners and hardware enthusiasts.
+This project implements an 8-bit Arithmetic Logic Unit (ALU) using custom CMOS logic gates and Verilog HDL, structured with a 4-stage pipelined architecture and a dual-phase clock system.
 
----
+It is designed for hardware enthusiasts and VLSI learners, providing hands-on experience in digital logic design and transistor-level circuit implementation.
 
+The ALU supports fundamental arithmetic and logical operations while maintaining modularity, pipeline efficiency, and carry/borrow flag tracking.
 ## ⚙️ Features
-
-- 🔢 Executes 8 operations: ADD, SUB, AND, OR, XOR, NOT A, NOT B, INC A  
-- ⏱️ 4-stage pipelined architecture for overlapped execution  
-- 🔄 Dual-phase clocking (`clk1`, `clk2`) for precise timing  
-- 🧠 Built entirely with CMOS logic: NAND, NOR, NOT, XOR  
-- 🗃️ Register Bank: 16 × 8-bit registers  
-- 💾 Memory Unit: 256 × 8-bit memory cells  
-- 🧩 Modular Verilog structure with clean gate-level design  
-- 🚩 Supports carry and borrow flag tracking
-
----
+| 🔢 Feature        | 📝 Description                                                        |
+| ----------------- | --------------------------------------------------------------------- |
+| 8 Operations      | ADD, SUB, AND, OR, XOR, NOT A, NOT B, INC A                           |
+| ⏱️ Pipeline       | 4-stage pipelined architecture for overlapped execution               |
+| 🔄 Clocking       | Dual-phase clocks (clk1, clk2) for safe timing and no race conditions |
+| 🧠 CMOS Logic     | Built entirely with NAND, NOR, NOT, XOR gates                         |
+| 🗃️ Register Bank | 16 × 8-bit registers                                                  |
+| 💾 Memory         | 256 × 8-bit memory cells                                              |
+| 🚩 Flags          | Carry/Borrow tracking for arithmetic operations                       |
+| 🧩 Modular        | Clean Verilog gate-level design for easy expansion                    |
 
 ## 🏗️ Architecture Overview
 
-The ALU operates on a 4-stage pipeline:
-
-1. 🧮 **Fetch Stage** – Load operands A and B from the register bank  
-2. 🔧 **Execute Stage** – Perform the selected ALU function  
-3. 📥 **Register Write Stage** – Write result to destination register  
-4. 🧾 **Memory Write Stage** – Store result in memory if enabled
-
-Clocks `clk1` and `clk2` alternate to drive adjacent pipeline stages safely and without race conditions.
-
----
+The 4-stage pipeline operates as follows:
+| 🔢 Stage                 | 🛠️ Function                                     |
+| ------------------------ | ------------------------------------------------ |
+| 1️⃣ Fetch Stage          | Load operands A and B from the register bank     |
+| 2️⃣ Execute Stage        | Perform the selected ALU operation               |
+| 3️⃣ Register Write Stage | Write the result to the destination register     |
+| 4️⃣ Memory Write Stage   | Store result in memory if write-enable is active |
 
 ## 🛠️ Tools Used
-
-| 🧰 Tool             | 📝 Purpose     
-|-------------------- |---------------|
-| Verilog HDL         | Design and modeling of digital hardware   |
-| Icarus Verilog      | Compilation and simulation of Verilog code |
-| GTKWave             | Waveform viewing and signal analysis      |
-
----
+| 🧰 Tool        | 📝 Purpose                                 |
+| -------------- | ------------------------------------------ |
+| Verilog HDL    | Design and modeling of digital hardware    |
+| Icarus Verilog | Compilation and simulation of Verilog code |
+| GTKWave        | Waveform visualization and signal analysis |
 
 ## 📤 Output Signals
+| 🟢 Signal    | 📝 Description                                            |
+| ------------ | --------------------------------------------------------- |
+| Zout         | 8-bit result of ALU operation                             |
+| Carry/Borrow | 1-bit flag indicating carry-out (ADD/INC) or borrow (SUB) |
 
-- 🟢 `Zout`: 8-bit result of the ALU operation  
-- 🔁 `Carry/Borrow`: 1-bit flag indicating carry-out (ADD/INC) or borrow (SUB)
-- ## 📄 File Descriptions
+## 📂 File Descriptions
+| 📄 File Name | 📝 Description                                                        |
+| ------------ | --------------------------------------------------------------------- |
+| ALU.v        | Main Verilog file containing ALU logic, pipeline stages, and datapath |
+| ALU_tb.v     | Testbench simulating ALU operations with dual clocks                  |
+| ALU.vcd      | Value Change Dump (VCD) file for waveform analysis in GTKWave         |
+| result       | Text output file capturing Zout and Carry/Borrow from simulation      |
+| README.md    | Project overview, architecture, tool usage, and file documentation    |
 
-| File Name     | Description                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| `ALU.v`       | Main Verilog file containing the ALU logic, pipeline stages, control, and data path. |
-| `ALU_tb.v`    | Testbench for simulating the ALU with various test cases using dual clocks. |
-| `ALU.vcd`     | Value Change Dump (VCD) file generated from simulation, used to view waveforms in GTKWave. |
-| `result`      | Text output file capturing the Zout and Carry/Borrow values from simulation for each operation. |
-| `README.md`   | Project overview, architecture, tool usage, and file documentation (you are reading it). |
+## ⚡ Simulation and Verification
+```
+1.Compile the Verilog code using Icarus Verilog
+iverilog -o ALU_tb ALU.v ALU_tb.v
+2.Run the simulation
+vvp ALU_tb
+3.View waveforms in GTKWave
+4.Check the result file for Zout and Carry/Borrow outputs
+```
+## 📝 Key Notes
+
+### ⚡ Pipeline ensures high throughput, but requires dual-phase clocks for proper timing.
+
+### 🧠 CMOS gate-level design provides a strong foundation for transistor-level digital design.
+
+### 🧩 Modular structure allows future expansion of operations, register bank, and memory.
+
+
+
+
+
