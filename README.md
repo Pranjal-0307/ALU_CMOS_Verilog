@@ -1,8 +1,5 @@
 # 🔧 8-Bit CMOS-Based Pipelined ALU
 ## 🧠 CMOS Logic Implementation
-
-This project implements an 8-bit Arithmetic Logic Unit (ALU) using custom CMOS logic gates and Verilog HDL, structured with a 4-stage pipelined architecture and a dual-phase clock system.
-
 It is designed for hardware enthusiasts and VLSI learners, providing hands-on experience in digital logic design and transistor-level circuit implementation.
 
 The ALU supports fundamental arithmetic and logical operations while maintaining modularity, pipeline efficiency, and carry/borrow flag tracking. 
