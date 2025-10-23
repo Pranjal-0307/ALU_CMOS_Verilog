@@ -51,14 +51,20 @@ The 4-stage pipeline operates as follows:
 | README.md    | Project overview, architecture, tool usage, and file documentation    |
 
 ## ⚡ Simulation and Verification
+1.Compile the Verilog code using Icarus Verilog 
 ```
-1.Compile the Verilog code using Icarus Verilog
 iverilog -o ALU_tb ALU.v ALU_tb.v
-2.Run the simulation
-vvp ALU_tb
-3.View waveforms in GTKWave
-4.Check the result file for Zout and Carry/Borrow outputs
 ```
+2.Run the simulation
+```
+vvp ALU_tb
+```
+3.View waveforms in GTKWave
+```
+gtkwave ALU.vcd
+```
+4.Check the result file for Zout and Carry/Borrow outputs
+
 ## 📝 Key Notes
 
 ⚡ Pipeline ensures high throughput, but requires dual-phase clocks for proper timing.
