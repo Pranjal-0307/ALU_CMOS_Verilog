@@ -53,7 +53,7 @@ The 4-stage pipeline operates as follows:
 ## ⚡ Simulation and Verification
 1.Compile the Verilog code using Icarus Verilog 
 ```
-iverilog -o ALU_tb ALU.v ALU_tb.v
+iverilog -o result ALU.v ALU_tb.v
 ```
 2.Run the simulation
 ```
