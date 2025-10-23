@@ -61,11 +61,11 @@ vvp ALU_tb
 ```
 ## 📝 Key Notes
 
-### ⚡ Pipeline ensures high throughput, but requires dual-phase clocks for proper timing.
+⚡ Pipeline ensures high throughput, but requires dual-phase clocks for proper timing.
 
-### 🧠 CMOS gate-level design provides a strong foundation for transistor-level digital design.
+🧠 CMOS gate-level design provides a strong foundation for transistor-level digital design.
 
-### 🧩 Modular structure allows future expansion of operations, register bank, and memory.
+🧩 Modular structure allows future expansion of operations, register bank, and memory.
 
 
 
